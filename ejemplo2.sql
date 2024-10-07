@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `usuario`
 --
 
+USE ejemplo2
+
 CREATE TABLE `usuario` (
   `id` bigint(20) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
