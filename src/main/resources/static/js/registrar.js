@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 });
 
 async function registrarUsuario(){
@@ -31,8 +32,11 @@ async function registrarUsuario(){
         // Verifica si la solicitud fue exitosa
         if (request.ok) {
             alert('Usuario registrado con éxito');
+            window.location.href='login.html';
         } else {
             alert('Error al registrar usuario');
         }
-        const usuarios = await request.json();
+        
+        //const usuarios = await request.json(); maneja si hay una sesion de usuario
+
 }

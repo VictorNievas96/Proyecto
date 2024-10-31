@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    iniciarSesion();
+
 });
 
 async function iniciarSesion(){
@@ -7,8 +7,7 @@ async function iniciarSesion(){
     datos.email = document.getElementById('txtEmail').value;
     datos.password = document.getElementById('txtPassword').value;
     
-   
-
+    
 
         // Envía la solicitud POST al servidor
         const request = await fetch('api/login', {
@@ -22,5 +21,16 @@ async function iniciarSesion(){
 
 
       
-        const respuesta = await request.json(); //maneja si hay una  sesion de usuarios
+        //const respuesta = await request.json(); //maneja si hay una  sesion de usuarios
+        const respuesta = await request.text();
+        
+        if(respuesta != "Fail"){
+            localStorage.token = respuesta;
+            localStorage.email = datos.email;
+            window.location.href='usuarios.html';
+            
+        }else {
+            alert("Las credenciales son incorrectas");
+        }
+
 }
